@@ -48,7 +48,7 @@ const subSiteRemovalList = [
     {
         domain: 'amazon.com',
         except: [
-            'gp/video'
+            '/gp/video'
         ]
     }
 ]
