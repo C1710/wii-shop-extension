@@ -43,3 +43,12 @@ const siteList = [
     'qvc.com',
     'shopping.google.com'
 ]
+
+const subSiteRemovalList = [
+    {
+        site: 'amazon.com',
+        except: [
+            'gp/video'
+        ]
+    }
+]
