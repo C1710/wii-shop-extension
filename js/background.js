@@ -24,7 +24,18 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
             var domain = url.hostname.toString().replace('www.','')
             console.log(domain)
             if (siteList.includes(domain)) {
-                themeAudio.play()
+                var exception = subSiteRemovalList.find(site => site.domain = domain)
+                if (exception == null) {
+                    themeAudio.play()
+                } else {
+                    // Check whether we should play music on this particular subsite
+                    var path = url.pathname.toString()
+                    if (exception.except.find(exceptPath => path.startsWith(exceptPath))) {
+                        themeAudio.pause()
+                    } else {
+                        themeAudio.play()
+                    }
+                }
             } else {
                 themeAudio.pause()
             }
